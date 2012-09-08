@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0; padding: 0 }
+    #map_canvas { height: 100% }
+    </style>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBaI383m7l6y-2i9TGMuZ8zUiFzRY2xr-Q&amp;sensor=false"></script>
+    <script type="text/javascript">
+    var G = google.maps;var map;
+    function initialize() {
+        var mapOptions = {
+            center: new google.maps.LatLng(52.12927,-106.67025),
+            zoom: 20,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+        togggleKmlLayer();
+
+        var markers = [];
+        markers[0] = {'name':"Forest Grove School",'lat':52.143338,'lng': -106.587139};
+        markers[1] = {'name':"Sutherland School",'lat':52.139186,'lng': -106.604675};
+        markers[2] = {'name':"St. Paul School St. Paul School",'lat':52.147831,'lng': -106.645760};
+        markers[3] = {'name':"First Mennonite Church",'lat':52.136855,'lng': -106.655599};
+        markers[4] = {'name':"St. Michael School (*)",'lat':52.144211,'lng': -106.666747};
+        markers[5] = {'name':"Henry Kelsey School",'lat':52.144814,'lng': -106.688107};
+        markers[6] = {'name':"Caswell School",'lat':52.138928,'lng': -106.671952};
+        markers[7] = {'name':"Princess Alexandra School",'lat':52.127699,'lng': -106.680740};
+        markers[8] = {'name':"St. Mary's Wellness and Education Centre",'lat':52.125517,'lng': -106.690942};
+        markers[9] = {'name':"W.P. Bate School",'lat':52.121586,'lng': -106.710158};
+        markers[10] = {'name':"St. Dominic School",'lat':52.108991,'lng': -106.730001};
+        markers[11] = {'name':"St. John School",'lat':52.111976,'lng': -106.691542};
+        markers[12] = {'name':"King George School",'lat':52.119175,'lng': -106.686463};
+        markers[13] = {'name':"Fairhaven School",'lat':52.122819,'lng': -106.730902};
+        markers[14] = {'name':"St. Marguerite School",'lat':52.121239,'lng': -106.746087};
+        markers[15] = {'name':"Father Vachon School",'lat':52.132836,'lng': -106.741597};
+        markers[16] = {'name':"Bishop Roberecki School",'lat':52.138346,'lng': -106.735600};
+        markers[17] = {'name':"Westmount School",'lat':52.134048,'lng': -106.684864};
+        markers[18] = {'name':"Howard Coad School",'lat':52.134442,'lng': -106.701666};
+        markers[19] = {'name':"Bishop Klein School",'lat':52.143035,'lng': -106.715116};
+        markers[20] = {'name':"Dundonald School",'lat':52.146815,'lng': -106.728737};
+        markers[21] = {'name':"Caroline Robins School",'lat':52.147974,'lng': -106.707799};
+        markers[22] = {'name':"St. Peter School",'lat':52.148424,'lng': -106.726644};
+        markers[23] = {'name':"River Heights School",'lat':52.163551,'lng': -106.634036};
+        markers[24] = {'name':"Rusty MacDonald Library Auditorium",'lat':52.168248,'lng': -106.633666};
+        markers[25] = {'name':"Lawson Heights School",'lat':52.170945,'lng': -106.619462};
+        markers[26] = {'name':"Silverwood Heights School",'lat':52.181966,'lng': -106.620638};
+        markers[27] = {'name':"Brownell School",'lat':52.179902,'lng': -106.632123};
+        markers[28] = {'name':"Saskatoon Public Library",'lat':52.129525,'lng': -106.660382};
+        markers[29] = {'name':"Oskayak High School",'lat':52.116136,'lng': -106.656239};
+        markers[30] = {'name':"Cosmopolitan Senior Citizens' Centre",'lat':52.118615,'lng': -106.655238};
+        markers[31] = {'name':"Brunskill School",'lat':52.124806,'lng': -106.637994};
+        markers[32] = {'name':"Bishop Murray High School",'lat':52.119240,'lng': -106.639983};
+        markers[33] = {'name':"Holliston School",'lat':52.110928,'lng': -106.630038};
+        markers[34] = {'name':"Ecole Canadienne-Francaise de Saskatoon",'lat':52.111264,'lng': -106.647835};
+        markers[35] = {'name':"Buena Vista School",'lat':52.112316,'lng': -106.669974};
+        markers[36] = {'name':"Queen Elizabeth School",'lat':52.106431,'lng': -106.658705};
+        markers[37] = {'name':"St. Frances School",'lat':52.104027,'lng': -106.666867};
+        markers[38] = {'name':"Seventh Day Adventist Christian School",'lat':52.102557,'lng': -106.677658};
+        markers[39] = {'name':"John Lake School",'lat':52.096303,'lng': -106.658022};
+        markers[40] = {'name':"The Willows Golf & Country Club",'lat':52.077066,'lng': -106.659244};
+        markers[41] = {'name':"Circle Drive Alliance Church",'lat':52.087890,'lng': -106.619925};
+        markers[42] = {'name':"Hugh Cairns School",'lat':52.095225,'lng': -106.639613};
+        markers[43] = {'name':"Prince PhilipÂ  School",'lat':52.094857,'lng': -106.629612};
+        markers[44] = {'name':"Pope John Paul II School",'lat':52.093759,'lng': -106.615483};
+        markers[45] = {'name':"Holy Cross High School",'lat':52.105073,'lng': -106.614842};
+        markers[46] = {'name':"Brevoort ParkÂ School",'lat':52.108996,'lng': -106.613628};
+        markers[47] = {'name':"Greystone Heights School",'lat':52.119414,'lng': -106.613177};
+        markers[48] = {'name':"College Park School",'lat':52.118262,'lng': -106.594996};
+        markers[49] = {'name':"St. Augustine School",'lat':52.120620,'lng': -106.575779};
+        markers[50] = {'name':"Lakewood Civic Centre",'lat':52.104976,'lng': -106.585666};
+        markers[51] = {'name':"Cliff Wright Library Auditorium",'lat':52.104378,'lng': -106.585264};
+        markers[52] = {'name':"Bishop Pocock School",'lat':52.107189,'lng': -106.595256};
+        markers[53] = {'name':"St. Bernard School",'lat':52.094769,'lng': -106.592323};
+        markers[54] = {'name':"Lakeridge School",'lat':52.095017,'lng': -106.579713};
+        markers[55] = {'name':"St. Luke School",'lat':52.094444,'lng': -106.575973};
+        markers[56] = {'name':"Father Robinson School",'lat':52.139988,'lng': -106.570163};
+        markers[57] = {'name':"Alice Turner Library",'lat':52.146940,'lng': -106.581549};
+        markers[58] = {'name':"Dr. John G. Egnatoff School",'lat':52.140488,'lng': -106.574109};
+        markers[59] = {'name':"Mother Teresa School",'lat':52.160952,'lng': -106.590507};
+
+        var infowindow = new google.maps.InfoWindow();
+
+        for(i=0;i<markers.length;i++){
+            var marker = new G.Marker({
+                position: new google.maps.LatLng(markers[i]['lat'],markers[i]['lng']),
+                map: map,
+                title: markers[i]['name'],
+                lat: markers[i]['lat'],
+                lng: markers[i]['lng']
+            });
+
+            google.maps.event.addListener(marker, 'click', function(e) {
+                infowindow.setContent('<h1>'+this.title+'</h1><img src="http://maps.googleapis.com/maps/api/streetview?size=200x100&amp;location='+this.lat+',%20'+this.lng+'&amp;sensor=false&amp;key=AIzaSyBaI383m7l6y-2i9TGMuZ8zUiFzRY2xr-Q"/>');
+                infowindow.open(map, this);
+            });
+        }
+
+    }
+
+    function togggleKmlLayer(){
+        if (!this.kmlLayer ) {
+            this.kmlLayer = new G.KmlLayer('http://www.elementnova.com/electionpoll2012.kmz');
+            this.displayIsOn = false;
+        }
+        if ( this.displayIsOn ){
+            this.kmlLayer.setMap( null );
+            this.displayIsOn = false;
+        }
+        else {
+            this.kmlLayer.setMap( map );
+            this.displayIsOn = true;
+        };
+    }
+
+    </script>
+</head>
+<body onload="initialize()">
+    <input type="button" value="Polling Staging Boundaries" onclick="togggleKmlLayer()" />
+    <div id="map_canvas" style="width:90%; height:90%"></div>
+</body>
+</html>
