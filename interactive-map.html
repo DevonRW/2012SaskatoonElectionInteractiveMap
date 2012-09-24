@@ -7,7 +7,7 @@
     body { height: 100%; margin: 0; padding: 0 }
     #map_canvas { height: 100% }
     </style>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBaI383m7l6y-2i9TGMuZ8zUiFzRY2xr-Q&sensor=false"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBevyAOn4iyKZSdfzgOHGUAcKL-HoZCTl0&sensor=false"></script>
     <script type="text/javascript">
     var G = google.maps;var map;
     function initialize() {
@@ -94,7 +94,7 @@
             });
 
             google.maps.event.addListener(marker, 'click', function(e) {
-                infowindow.setContent('<h1>'+this.title+'</h1><img src="http://maps.googleapis.com/maps/api/streetview?size=200x100&;location='+this.lat+',%20'+this.lng+'&sensor=false&key=AIzaSyBaI383m7l6y-2i9TGMuZ8zUiFzRY2xr-Q"/>');
+                infowindow.setContent('<h1>'+this.title+'</h1><img src="http://maps.googleapis.com/maps/api/streetview?size=200x100&;location='+this.lat+',%20'+this.lng+'&sensor=false&key=AIzaSyBevyAOn4iyKZSdfzgOHGUAcKL-HoZCTl0"/>');
                 infowindow.open(map, this);
             });
         }
