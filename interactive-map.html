@@ -94,7 +94,7 @@
             });
 
             google.maps.event.addListener(marker, 'click', function(e) {
-                infowindow.setContent('<h1>'+this.title+'</h1><img src="http://maps.googleapis.com/maps/api/streetview?size=200x100&location='+this.lat+',%20'+this.lng+'&sensor=false&key=AIzaSyBevyAOn4iyKZSdfzgOHGUAcKL-HoZCTl0"/>');
+                infowindow.setContent('<h1>'+this.title+'</h1><img src="http://maps.googleapis.com/maps/api/streetview?size=200x100&location='+this.lat+', '+this.lng+'&sensor=false&key=AIzaSyBevyAOn4iyKZSdfzgOHGUAcKL-HoZCTl0"/>');
                 infowindow.open(map, this);
             });
         }
